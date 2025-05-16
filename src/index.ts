@@ -8,7 +8,7 @@ import postRoutes from './routes/postRoutes';
 import commentRoutes from './routes/commentRoutes';
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use('/users', userRoutes);
@@ -17,7 +17,7 @@ app.use('/comments', commentRoutes);
 
 connectDB().then(() => {
   app.listen(PORT, () => {
-    console.log(`\u2705 Connected to MongoDB`);
+
     console.log(`\uD83D\uDE80 Server running on http://localhost:${PORT}`);
   });
 });
